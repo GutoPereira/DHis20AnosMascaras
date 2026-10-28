@@ -28,9 +28,9 @@ void setup() {
   Serial.begin(115200);
 
   for (uint8_t i = 0; i < N_BUTTONS; i++) {
-    pinMode(buttonPins[i], INPUT_PULLUP);
+    pinMode(buttonPins[i], INPUT);
 
-    bool pressed = digitalRead(buttonPins[i]) == LOW;
+    bool pressed = digitalRead(buttonPins[i]) == HIGH;
 
     bitWrite(rawState, i, pressed);
     bitWrite(stableState, i, pressed);
@@ -45,7 +45,7 @@ void loop() {
   unsigned long now = millis();
 
   for (uint8_t i = 0; i < N_BUTTONS; i++) {
-    bool pressed = digitalRead(buttonPins[i]) == LOW;
+    bool pressed = digitalRead(buttonPins[i]) == HIGH;
 
     bool lastRaw = bitRead(rawState, i);
     bool stable = bitRead(stableState, i);
