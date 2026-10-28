@@ -107,6 +107,7 @@ Toda vez que o estado de um botão muda, um byte é enviado via `Serial.write` n
 O bit mais significativo, o primeiro da esquerda para a direita, é o botão 8, enquanto o menos significativo("último") é o botão 1.
 
 | Byte | Decimal | Significado |
+| --- | --- | --- |
 | `00000001` | 1 | Botão 1 pressionado |
 | `00101001` | 41 | Botões 1, 4 e 6 pressionados |
 | `00000000` | 0 | Nenhum botão pressionado |
