@@ -22,7 +22,7 @@ const uint8_t buttonPins[N_BUTTONS] = {
 A ordem dos botões pode ser definida livremente.
 
 > [!NOTE]
-> Tome nota do baudrate definido aqui, pois será utilizado posteriormente pelo App
+> Tome nota do baudrate definido aqui, pois será utilizado posteriormente pelo App, descrito mais adiante.
 > 
 > ```cpp
 > Serial.begin(115200);
@@ -80,10 +80,10 @@ Atributos da tag `face`:
 | --- | --- | --- |
 | `file` | string | nome do arquivo de vídeo dentro da pasta `/data/videos/` com a extensão `.mp4` |
 
-> [!NOTE]
+> [!WARNING]
 > O nome dos arquivos não devem conter caracteres especiais, apenas letras maiúsculas e minúsculas, espaços, `-`, `_` e números.
 
-> [!NOTE]
+> [!TIP]
 > A ordem das tags `face` define a ordem dos vídeos, a primeira linha com os vídeos de 1 a 4 da esquerda para a direita e a segunda linha com os vídeos 5 a 8.
 
 ### Mapa de atalhos
@@ -94,3 +94,23 @@ Atributos da tag `face`:
 | `d` | `D` | Exibe ou esconde informações de debug |
 | `c` | `C` | Alterna entre mostrar o cursor do mouse ou não |
 | `Esc` |  | Fechamento do App |
+
+## Comunicação do Arduino para o App
+
+Ao iniciar o App, ele tentará se conectar na porta configurada pelo arquivo `config.xml` usando o atributo `arduinoPort` usando a taxa de comunicação do atributo `baudrate`, ambos da tag `App`.
+
+> [!WARNING]
+> Antes de iniciar o App, certifique-se de que a porta do arduino está livre.
+
+Toda vez que o estado de um botão muda, um byte é enviado via `Serial.write` no Arduino, contendo a informação de todos os botões ao mesmo tempo.
+
+O bit mais significativo, o primeiro da esquerda para a direita, é o botão 8, enquanto o menos significativo("último") é o botão 1.
+
+| Byte | Decimal | Significado |
+| `00000001` | 1 | Botão 1 pressionado |
+| `00101001` | 41 | Botões 1, 4 e 6 pressionados |
+| `00000000` | 0 | Nenhum botão pressionado |
+| `10000000` | 128 | Botão 8 pressionado |
+
+> [!TIP]
+> Para fins de teste do App sem um Arduino, as teclas 1 a 8 podem ser utilizadas substituindo os botões 1 a 8.
