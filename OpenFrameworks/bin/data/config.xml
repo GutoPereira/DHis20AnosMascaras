@@ -1,0 +1,22 @@
+<App
+    paddingL="50"
+    paddingT="50"
+    videoW="100"
+    videoH="200"
+    videoSpacingH="250"
+    videoSpacingV="300"
+    fadeTime="2000"
+    arduinoPort="COM3"
+    baudrate="115200"
+    fullscreen="true"
+>
+    <face file="Alan_Ribeiro.mp4"/>
+    <face file="Anderson_Buda.mp4"/>
+    <face file="Bruno_Rangel.mp4"/>
+    <face file="Gilson.mp4"/>
+    <face file="Luciano.mp4"/>
+    <face file="Marcelo_Indio.mp4"/>
+    <face file="Marcio_Conceicao_Goncalves.mp4"/>
+    <face file="Nina_Monteiro.mp4"/>
+    <face file="Renato_Tona.mp4"/>
+</App>
