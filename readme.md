@@ -34,8 +34,8 @@ Ao início, o App não toca nenhum vídeo. Ao tocar em um dos 8 botões do Ardui
 
 ### Requisitos
 
-. [VLC](https://www.videolan.org/index.html) instalado.
-. [K-Lite CODEC Pack](https://www.codecguide.com/download_kl.htm) instalado.
+- [VLC](https://www.videolan.org/index.html) instalado.
+- [K-Lite CODEC Pack](https://www.codecguide.com/download_kl.htm) instalado.
 
 ### Assets
 
