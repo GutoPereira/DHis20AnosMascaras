@@ -37,6 +37,9 @@ Ao início, o App não toca nenhum vídeo. Ao tocar em um dos 8 botões do Ardui
 . [VLC](https://www.videolan.org/index.html) instalado.
 . [K-Lite CODEC Pack](https://www.codecguide.com/download_kl.htm) instalado.
 
+### Assets
+
+Os vídeos ficam na pasta `/data/videos/` e devem estar preferencialmente na extensão `MP4` com CODEC `H.264`.
 
 ### Configuração
 
