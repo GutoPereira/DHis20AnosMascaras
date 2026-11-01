@@ -104,6 +104,15 @@ Atributos da tag `face`:
 | `f` | `F` | Ativa e desativa modo tela cheia |
 | `d` | `D` | Exibe ou esconde informações de debug |
 | `c` | `C` | Alterna entre mostrar o cursor do mouse ou não |
+| `→` |  | Aumenta o espaçamento lateral entre os vídeos |
+| `←` |  | Diminui o espaçamento lateral entre os vídeos |
+| `↓` |  | Aumenta o espaçamento vertical entre os vídeos |
+| `↑` |  | Diminui o espaçamento vertical entre os vídeos |
+| `Shift` + `→` |  | Mover os vídeos para a direita |
+| `Shift` + `←` |  | Mover os vídeos para a esquerda |
+| `Shift` + `↓` |  | Mover os vídeos para baixo |
+| `Shift` + `↑` |  | Mover os vídeos para cima |
+| `s` | `S` | Salva as configurações atuais de espaçamento e translação dos vídeos no arquivo XML |
 | `Esc` |  | Fechamento do App |
 
 ## Comunicação do Arduino para o App
