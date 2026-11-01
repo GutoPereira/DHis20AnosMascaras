@@ -30,6 +30,8 @@ A ordem dos botões pode ser definida livremente.
 
 ## App
 
+Ao início, o App não toca nenhum vídeo. Ao tocar em um dos 8 botões do Arduino ou em uma das teclas de 1 a 8 do teclado, um dos vídeos nas diferentes posições transiciona do preto. Ao tocar no botão de um vídeo que esteja tocando, ele transiciona para preto. Quando o vídeo estiver chegando ao fim, ele transiciona para preto.
+
 ### Configuração
 
 As configurações do app são feitas a partir de um arquivo XML dentro da pasta data, chamado `config.xml`. Ele possui o nó que engloba toda a aplicação, `App`, e seus filhos, um para cada uma das 8 faces, usando a tag com auto fechamento `face`.
