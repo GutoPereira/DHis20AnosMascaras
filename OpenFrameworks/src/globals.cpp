@@ -85,3 +85,56 @@ void globals::loadConfig() {
 	ofLogNotice()
 		<< "Faces carregadas: " << facesPaths.size();
 }
+
+void globals::saveConfig() {
+	
+	ofXml xml;
+	
+	if(xml.load("config.xml")){
+		ofXml app = xml;
+
+		if (app.getName() != "App") {
+			app = xml.getChild("App");
+		}
+
+		if (app.getName() != "App") {
+			ofLogError() << "Elemento App nao encontrado";
+			return;
+		}
+		
+		auto getString = [&](const std::string & name,
+							 const std::string & fallback) {
+			std::string value = app.getAttribute(name).getValue();
+
+			return value.empty() ? fallback : value;
+		};
+
+		auto getInt = [&](const std::string & name, int fallback) {
+			std::string value = app.getAttribute(name).getValue();
+
+			if (value.empty()) return fallback;
+
+			try {
+				return std::stoi(value);
+			} catch (...) {
+				return fallback;
+			}
+		};
+		
+		/*
+		 globals::paddingL = 0;
+		 globals::paddingT = 0;
+		 globals::videoSpacingH = 100;
+		 globals::videoSpacingV = 150;
+		 //*/
+		
+		app.setAttribute("paddingL", globals::paddingL);
+		app.setAttribute("paddingT", globals::paddingT);
+		app.setAttribute("videoSpacingH", globals::videoSpacingH);
+		app.setAttribute("videoSpacingV", globals::videoSpacingV);
+		
+		cout << "Config save" << std::endl;
+	}
+	
+	xml.save("config.xml");
+}

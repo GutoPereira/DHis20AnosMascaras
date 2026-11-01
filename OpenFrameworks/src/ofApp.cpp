@@ -53,6 +53,24 @@ void ofApp::update() {
 	for (auto & face : faces) {
 		if (face) face->update();
 	}
+	
+	if (shiftPressed) {
+		if (rArrowPressed) {
+			globals::paddingL++;
+			cout << "padding left add" << std::endl;
+		}
+		if (lArrowPressed) globals::paddingL--;
+		if (dArrowPressed) {
+			globals::paddingT++;
+			cout << "padding top add" << std::endl;
+		}
+		if (uArrowPressed) globals::paddingT--;
+	} else {
+		if (rArrowPressed) globals::videoSpacingH++;
+		if (lArrowPressed) globals::videoSpacingH--;
+		if (dArrowPressed) globals::videoSpacingV++;
+		if (uArrowPressed) globals::videoSpacingV--;
+	}
 }
 
 void ofApp::updateSerial() {
@@ -119,6 +137,31 @@ void ofApp::draw() {
 	if (debug) drawDebug();
 }
 
+void ofApp::keyPressed(int key) {
+	switch (key) {
+		case OF_KEY_LEFT_SHIFT:
+			shiftPressed = true;
+			cout << "shift was pressed" << std::endl;
+			break;
+		case OF_KEY_UP:
+			uArrowPressed = true;
+			cout << "up was pressed" << std::endl;
+			break;
+		case OF_KEY_DOWN:
+			dArrowPressed = true;
+			cout << "down was pressed" << std::endl;
+			break;
+		case OF_KEY_LEFT:
+			lArrowPressed = true;
+			cout << "left was pressed" << std::endl;
+			break;
+		case OF_KEY_RIGHT:
+			rArrowPressed = true;
+			cout << "right was pressed" << std::endl;
+			break;
+	}
+}
+
 void ofApp::keyReleased(int key) {
 	// Mantem o teclado como alternativa para testes.
 	int index = key - '1';
@@ -138,6 +181,25 @@ void ofApp::keyReleased(int key) {
 			case 'c':
 			case 'C':
 				toggleCursor();
+				break;
+			case 's':
+			case 'S':
+				globals::saveConfig();
+				break;
+			case OF_KEY_LEFT_SHIFT:
+				shiftPressed = false;
+				break;
+			case OF_KEY_UP:
+				uArrowPressed = false;
+				break;
+			case OF_KEY_DOWN:
+				dArrowPressed = false;
+				break;
+			case OF_KEY_LEFT:
+				lArrowPressed = false;
+				break;
+			case OF_KEY_RIGHT:
+				rArrowPressed = false;
 				break;
 		}
 	}

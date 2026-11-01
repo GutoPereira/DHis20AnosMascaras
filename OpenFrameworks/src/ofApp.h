@@ -14,6 +14,7 @@ public:
 	void setup();
 	void update();
 	void draw();
+	void keyPressed(int key);
 	void keyReleased(int key);
 	void toggleDebug();
 	void toggleCursor();
@@ -35,4 +36,13 @@ private:
 	void loadConfig();
 	void updateSerial();
 	void processButtons(uint8_t buttons);
+	
+	bool lArrowPressed = false;
+	bool rArrowPressed = false;
+	bool uArrowPressed = false;
+	bool dArrowPressed = false;
+	
+	bool shiftPressed = false;
+	
+	bool sPressed = false;
 };

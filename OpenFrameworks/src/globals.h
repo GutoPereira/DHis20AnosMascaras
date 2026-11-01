@@ -26,4 +26,6 @@ class globals {
 		static std::vector<std::string> facesPaths;
 
 		static void loadConfig();
+	
+		static void saveConfig();
 };
