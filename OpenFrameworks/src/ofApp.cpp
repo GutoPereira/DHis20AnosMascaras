@@ -127,7 +127,12 @@ void ofApp::draw() {
 	for (size_t i = 0; i < faces.size(); i++) {
 		if (!faces[i]) continue;
 		int index = static_cast<int>(i);
-		int x = globals::paddingL + globals::videoSpacingH * (index % globals::N_COLS);
+		int x;
+		if (index < globals::N_COLS) {
+			x = globals::paddingL + globals::videoSpacingH * (globals::N_COLS - 1 - index);
+		} else {
+			x = globals::paddingL + globals::videoSpacingH * (index % globals::N_COLS);
+		}
 
 		int y = globals::paddingT + globals::videoSpacingV * (index / globals::N_COLS);
 
