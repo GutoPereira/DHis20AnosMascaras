@@ -19,7 +19,7 @@ const uint8_t buttonPins[N_BUTTONS] = {
 };
 ```
 
-A ordem dos botões pode ser definida livremente.
+A ordem dos botões pode ser definida livremente neste Array.
 
 > [!NOTE]
 > Tome nota do baudrate definido aqui, pois será utilizado posteriormente pelo App, descrito mais adiante.
@@ -27,6 +27,13 @@ A ordem dos botões pode ser definida livremente.
 > ```cpp
 > Serial.begin(115200);
 > ```
+
+## Instalação física
+
+A disposição física dos botões na instalação foi feita da seguinte forma, quando vistos de frente:
+| 4 | 3 | 2 | 1 |
+| --- | --- | --- | --- |
+| **5** | **6** | **7** | **8** |
 
 ## App
 
@@ -58,15 +65,14 @@ As configurações do app são feitas a partir de um arquivo XML dentro da pasta
     baudrate="115200"
     fullscreen="true"
 >
-    <face file="Alan_Ribeiro.mp4"/>
-    <face file="Anderson_Buda.mp4"/>
-    <face file="Bruno_Rangel.mp4"/>
-    <face file="Gilson.mp4"/>
-    <face file="Luciano.mp4"/>
-    <face file="Marcelo_Indio.mp4"/>
-    <face file="Marcio_Conceicao_Goncalves.mp4"/>
-    <face file="Nina_Monteiro.mp4"/>
-    <face file="Renato_Tona.mp4"/>
+    <face file="Alan_Ribeiro.mp4"/><!-- Botão 1 -->
+    <face file="Anderson_Buda.mp4"/><!-- Botão 2 -->
+    <face file="Bruno_Rangel.mp4"/><!-- Botão 3 -->
+    <face file="Gilson.mp4"/><!-- Botão 4 -->
+    <face file="Nina_Monteiro.mp4"/><!-- Botão 5 -->
+    <face file="Marcelo_Indio.mp4"/><!-- Botão 6 -->
+    <face file="Marcio_Conceicao_Goncalves.mp4"/><!-- Botão 7 -->
+    <face file="Renato_Tona.mp4"/><!-- Botão 8 -->
 </App>
 ```
 
